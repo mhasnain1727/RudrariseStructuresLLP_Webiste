@@ -1,0 +1,34 @@
+/* ── Global Reset for Rudrarise Structures LLP ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #333;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+/* Remove default heading margins for clean layout */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
