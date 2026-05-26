@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────────────────────
+# Rudrarise Structures LLP — GitHub Pages Auto-Deploy
+#
+# Triggers on every push to the `main` branch.
+# Builds the Vite/React app and publishes the dist/ folder
+# to GitHub Pages. Your GoDaddy domain (set in public/CNAME)
+# will serve the live website automatically.
+# ─────────────────────────────────────────────────────────────
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main          # auto-deploy on every push to main
+  workflow_dispatch:  # also allows manual trigger from GitHub UI
+
+# Required permissions for the new GitHub Pages deploy API
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only allow one deployment at a time; don't cancel in-progress ones
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ── Job 1: Build ──────────────────────────────────────────
+  build:
+    name: Build Vite App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+        # The dist/ folder will contain index.html + assets + photos + CNAME
+
+      - name: Upload build artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist   # Vite outputs to dist/
+
+  # ── Job 2: Deploy ─────────────────────────────────────────
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
