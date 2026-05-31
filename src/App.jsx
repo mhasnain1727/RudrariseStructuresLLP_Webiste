@@ -45,6 +45,150 @@ const stats = [
 ];
 
 /* ─────────────────────────────────────────────────────────────
+   PROJECT TYPES DATA
+───────────────────────────────────────────────────────────── */
+const projectTypes = [
+  {
+    icon: 'fa-building',
+    title: 'High-Rise Residential',
+    desc: 'Multi-storey towers from G+10 to G+40+, delivering premium apartments with world-class amenities.',
+    points: [
+      'RCC framed structure with advanced formwork systems',
+      'Towers up to 40+ floors with full MEP integration',
+      'Podium + Tower typology with basement parking',
+      'High-speed passenger & service lifts',
+      'Fire safety and sprinkler systems as per NBC norms',
+    ],
+  },
+  {
+    icon: 'fa-home',
+    title: 'Low-Rise Housing',
+    desc: 'Villas, row houses, and plotted developments crafted for comfort, privacy, and lifestyle.',
+    points: [
+      'Independent villas and duplex row houses',
+      'Gated community layouts with landscaped streets',
+      'Stilt + 2/3 floor configurations',
+      'Private gardens and open terrace options',
+      'Rainwater harvesting and EV charging provisions',
+    ],
+  },
+  {
+    icon: 'fa-store',
+    title: 'Commercial Complexes',
+    desc: 'Retail spaces, shopping malls, and mixed-use commercial hubs built for high footfall and visibility.',
+    points: [
+      'Retail high-streets and shopping centres',
+      'Mixed-use podium retail with residential above',
+      'Large-format anchor store provisions',
+      'Ample basement and surface parking',
+      'High-specification MEP and fire systems',
+    ],
+  },
+  {
+    icon: 'fa-briefcase',
+    title: 'Office Spaces',
+    desc: 'Corporate parks and IT office campuses designed for productivity, prestige, and future flexibility.',
+    points: [
+      'Grade-A commercial office buildings',
+      'Column-free floor plates up to 30,000 sq.ft.',
+      'Central air-conditioning and BMS integration',
+      'Green building features (IGBC / LEED ready)',
+      'Dedicated server room and UPS provisions',
+    ],
+  },
+  {
+    icon: 'fa-swimmer',
+    title: 'Clubs & Amenity Blocks',
+    desc: 'Clubhouses and recreational centres that become the social heart of every residential community.',
+    points: [
+      'Swimming pools, gyms, and sports courts',
+      'Banquet halls and multipurpose event spaces',
+      'Kids play zones and senior citizen areas',
+      'Spa, wellness, and indoor game rooms',
+      'Landscape integration with outdoor seating',
+    ],
+  },
+  {
+    icon: 'fa-city',
+    title: 'Integrated Townships',
+    desc: 'Master-planned self-sufficient communities combining housing, retail, offices, and amenities.',
+    points: [
+      'Large-scale township planning from 10–200+ acres',
+      'Mix of high-rise, low-rise, and commercial zones',
+      'Internal road network and utility infrastructure',
+      'Dedicated schools, hospitals, and civic areas',
+      'Phased construction with independent utility supply',
+    ],
+  },
+];
+
+/* ─────────────────────────────────────────────────────────────
+   CAPABILITIES DATA (5 M's)
+───────────────────────────────────────────────────────────── */
+const capabilities = [
+  {
+    icon: 'fa-users-cog',
+    title: 'Manpower',
+    subtitle: 'Skilled & Unskilled Workforce',
+    points: [
+      'Licensed engineers, architects & quantity surveyors',
+      'Skilled tradesmen — formwork, rebar, masonry, finishing',
+      'Supervised unskilled labour teams with daily briefings',
+      'Dedicated safety officers on every active site',
+      'Workforce strength scalable from 50 to 2000+ per project',
+    ],
+  },
+  {
+    icon: 'fa-boxes',
+    title: 'Material',
+    subtitle: 'Availability & Procurement',
+    points: [
+      'Established vendor network across PAN India',
+      'Quality-tested cement, TMT steel, and aggregates',
+      'Just-in-time material delivery to minimise storage waste',
+      'On-site material tracking and inventory management',
+      'Long-term rate contracts ensuring price stability',
+    ],
+  },
+  {
+    icon: 'fa-truck-monster',
+    title: 'Machines',
+    subtitle: 'Equipment & Plant',
+    points: [
+      'Tower cranes and mobile cranes of varying capacities',
+      'In-house concrete batching plants (30–60 m³/hr)',
+      'Excavators, dumpers, compactors and transit mixers',
+      'Modern jump-form and slip-form shuttering systems',
+      'Dedicated equipment maintenance team on-site',
+    ],
+  },
+  {
+    icon: 'fa-project-diagram',
+    title: 'Method',
+    subtitle: 'Modus Operandi',
+    points: [
+      'ISO 9001:2015 aligned construction methodology',
+      'Detailed method statements for every major activity',
+      'RCC framed structure with proven sequencing',
+      'Quality audits and concrete cube testing at every pour',
+      'Bar chart scheduling with weekly progress reviews',
+    ],
+  },
+  {
+    icon: 'fa-sitemap',
+    title: 'Management',
+    subtitle: 'Levels & Structure',
+    points: [
+      'Senior project directors overseeing overall delivery',
+      'Resident Engineers and Site Managers per block',
+      'Section-wise supervisors and gang foremen',
+      'Weekly client reporting with photo documentation',
+      'On-site EHS manager ensuring zero-incident culture',
+    ],
+  },
+];
+
+/* ─────────────────────────────────────────────────────────────
    NAVBAR
 ───────────────────────────────────────────────────────────── */
 function Navbar() {
@@ -56,10 +200,12 @@ function Navbar() {
           <span className="brand-name"> Rudrarise Structures LLP</span>
         </a>
         <div className="w3-right w3-hide-small nav-links">
-          <a href="#projects"  className="w3-bar-item w3-button nav-link"><i className="fas fa-th-large nav-icon"></i> Projects</a>
-          <a href="#services"  className="w3-bar-item w3-button nav-link"><i className="fas fa-cogs nav-icon"></i> Services</a>
-          <a href="#about"     className="w3-bar-item w3-button nav-link"><i className="fas fa-info-circle nav-icon"></i> About</a>
-          <a href="#contact"   className="w3-bar-item w3-button nav-link nav-cta"><i className="fas fa-phone-alt nav-icon"></i> Contact</a>
+          <a href="#services"      className="w3-bar-item w3-button nav-link"><i className="fas fa-cogs nav-icon"></i> Services</a>
+          <a href="#project-types" className="w3-bar-item w3-button nav-link"><i className="fas fa-th nav-icon"></i> Project Types</a>
+          <a href="#projects"      className="w3-bar-item w3-button nav-link"><i className="fas fa-th-large nav-icon"></i> Gallery</a>
+          <a href="#capabilities"  className="w3-bar-item w3-button nav-link"><i className="fas fa-sitemap nav-icon"></i> Capabilities</a>
+          <a href="#about"         className="w3-bar-item w3-button nav-link"><i className="fas fa-info-circle nav-icon"></i> About</a>
+          <a href="#contact"       className="w3-bar-item w3-button nav-link nav-cta"><i className="fas fa-phone-alt nav-icon"></i> Contact</a>
         </div>
       </div>
     </div>
@@ -250,6 +396,104 @@ function Projects() {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   PROJECT TYPES
+───────────────────────────────────────────────────────────── */
+function ProjectTypes() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
+
+  return (
+    <div className="pt-section" id="project-types">
+      <div className="w3-content pt-inner">
+        <div className="pt-header">
+          <div className="pt-header-badge">WHAT WE BUILD</div>
+          <h3 className="pt-title">Project Types</h3>
+          <p className="pt-subtitle">
+            From foundation to skyline — we deliver across every segment of the built environment
+          </p>
+        </div>
+
+        <div className="pt-grid">
+          {projectTypes.map((p, i) => (
+            <div key={i} className={`pt-card ${openIndex === i ? 'pt-card--open' : ''}`}>
+              <div className="pt-card-top" onClick={() => toggle(i)}>
+                <div className="pt-icon-wrap">
+                  <i className={`fas ${p.icon} pt-icon`}></i>
+                </div>
+                <div className="pt-card-text">
+                  <h4 className="pt-card-title">{p.title}</h4>
+                  <p className="pt-card-desc">{p.desc}</p>
+                </div>
+                <button className="pt-toggle-btn" aria-label="expand">
+                  <i className={`fas ${openIndex === i ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+                </button>
+              </div>
+
+              {openIndex === i && (
+                <div className="pt-expand">
+                  <ul className="pt-points">
+                    {p.points.map((pt, j) => (
+                      <li key={j} className="pt-point">
+                        <i className="fas fa-check-circle pt-check"></i>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   OUR CAPABILITIES (5 M's)
+───────────────────────────────────────────────────────────── */
+function Capabilities() {
+  return (
+    <div className="cap-section" id="capabilities">
+      <div className="w3-content cap-inner">
+        <div className="section-header">
+          <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16 section-title">
+            Our Capabilities
+          </h3>
+          <p className="section-subtitle">
+            The 5 pillars that power every project we undertake — from ground-breaking to hand-over
+          </p>
+        </div>
+
+        <div className="cap-grid">
+          {capabilities.map((c, i) => (
+            <div key={i} className="cap-card">
+              <div className="cap-top-bar"></div>
+              <div className="cap-card-body">
+                <div className="cap-icon-wrap">
+                  <i className={`fas ${c.icon} cap-icon`}></i>
+                </div>
+                <h4 className="cap-title">{c.title}</h4>
+                <p className="cap-subtitle">{c.subtitle}</p>
+                <ul className="cap-points">
+                  {c.points.map((pt, j) => (
+                    <li key={j} className="cap-point">
+                      <i className="fas fa-angle-right cap-arrow"></i>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
    ABOUT
 ───────────────────────────────────────────────────────────── */
 function About() {
@@ -400,7 +644,7 @@ function Footer() {
           <div className="w3-col l2 m6 footer-links-col">
             <h5 className="footer-col-title">Quick Links</h5>
             <ul className="footer-links">
-              {[['#home','Home'],['#projects','Projects'],['#services','Services'],['#about','About'],['#contact','Contact']].map(([href,label]) => (
+              {[['#home','Home'],['#services','Services'],['#project-types','Project Types'],['#projects','Gallery'],['#capabilities','Capabilities'],['#about','About'],['#contact','Contact']].map(([href,label]) => (
                 <li key={href}><a href={href}>{label}</a></li>
               ))}
             </ul>
@@ -447,7 +691,9 @@ function App() {
       <Hero />
       <StatsBar />
       <Services />
+      <ProjectTypes />
       <Projects />
+      <Capabilities />
       <About />
       <Contact />
       <Footer />
